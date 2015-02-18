@@ -1,6 +1,6 @@
 {
   "name": "tray",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Node library for creating simple System Tray applications on OSX",
   "main": "lib/tray.js",
   "repository": {
