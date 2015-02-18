@@ -3,6 +3,9 @@
   "version": "2.0.0",
   "description": "Node library for creating simple System Tray applications on OSX",
   "main": "lib/tray.js",
+  "scripts": {
+    "demo": "node demo/demo.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/brandonhorst/node-tray"
@@ -26,7 +29,12 @@
   },
   "homepage": "https://github.com/brandonhorst/node-tray",
   "dependencies": {
-    "NodObjC": "^1.0.0",
+    "NodObjC": "^1.0.0"
+  },
+  "peerDependences": {
+    "native-app": "^1.0.1"
+  },
+  "devDependencies": {
     "native-app": "^1.0.1"
   }
 }
