@@ -21,11 +21,12 @@
   "bugs": {
     "url": "https://github.com/brandonhorst/node-tray/issues"
   },
-  "engines" : {
-    "node" : ">=0.8.0 <0.11"
+  "engines": {
+    "node": ">=0.8.0 <0.11"
   },
   "homepage": "https://github.com/brandonhorst/node-tray",
   "dependencies": {
-    "NodObjC": "^1.0.0"
+    "NodObjC": "^1.0.0",
+    "native-app": "^1.0.1"
   }
 }

@@ -1,35 +1,42 @@
-# node-tray
+# tray
 Node library for creating simple System Tray applications in OSX
 
 Currently only working on node 0.10.x. Support for 0.12.x and io.js  will come when `NodObjC` is updated.
 
 ##Installation
+
 ```sh
-npm install tray
+npm install native-app tray --save
 ```
 
 ##Usage
+
+`tray` relies upon `native-app`. You must call `createApp` and pass the `app` instance to `createTray`.
+
 ```js
+var createApp = require('native-app')
 var createTray = require('tray')
 
-createTray(function (err, tray) {
-  tray.specify({
-    title: 'Hello, world!',
-    menuItems: [
-      {title: 'Informational'},
-      {
-        title: 'Do something',
-        shortcut: 'x',
-        action: function () { console.log('You pressed a menuItem!') }
-      }
-    ]
+createApp(function (err, app) {
+  createTray(app, function (err, tray) {
+    tray.specify({
+      title: 'Hello, world!',
+      menuItems: [
+        {title: 'Informational'},
+        {
+          title: 'Do something',
+          shortcut: 'x',
+          action: function () { console.log('You pressed a menuItem!') }
+        }
+      ]
+    })
   })
 })
 ```
 
 ##API Reference
 
-### `createTray(callback)`
+### `createTray(app, callback)`
 `callback` is passed a `Tray` once it is ready to use.
 
 Each program should only call `createTray` once. If you want multiple Items in your Tray, simply pass an array to `Tray.specify`.
@@ -37,7 +44,7 @@ Each program should only call `createTray` once. If you want multiple Items in y
 ### `Tray`
 
 #### `specify(options)`
-`options` is an object or an array of objects containing these properties:
+`options` is an object containing these properties:
 
 - `title: String` - Text displayed in the Tray (required)
 - `menuItems: [MenuItem]` - Items to display in the menu. Each MenuItem is an object containing these properties:
